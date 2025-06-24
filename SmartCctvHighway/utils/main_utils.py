@@ -3,8 +3,8 @@ import sys
 import yaml
 import base64
 
-from signLanguage.exception import SignException
-from signLanguage.logger import logging
+from SmartCctvHighway.exception import AppException
+from SmartCctvHighway.logger import logging
 
 
 def read_yaml_file(file_path: str) -> dict:
@@ -14,7 +14,7 @@ def read_yaml_file(file_path: str) -> dict:
             return yaml.safe_load(yaml_file)
 
     except Exception as e:
-        raise SignException(e, sys) from e
+        raise AppException(e, sys) from e
     
 
 def write_yaml_file(file_path: str, content: object, replace: bool = False) -> None:
@@ -30,10 +30,8 @@ def write_yaml_file(file_path: str, content: object, replace: bool = False) -> N
             logging.info("Successfully write_yaml_file")
 
     except Exception as e:
-        raise SignException(e, sys)
+        raise AppException(e, sys)
     
-
-
 
 def decodeImage(imgstring, fileName):
     imgdata = base64.b64decode(imgstring)
