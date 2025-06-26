@@ -24,11 +24,7 @@ class DataIngestionConfig:
     feature_store_file_path: str = os.path.join(
         data_ingestion_dir, DATA_INGESTION_FEATURE_STORE_DIR
     )
-    data_roboflow_api_key: str = DATA_ROBOFLOW_API_KEY
-    data_roboflow_version: int = DATA_ROBOFLOW_VERSION
-    data_roboflow_workspace: str = DATA_ROBOFLOW_WORKSPACE
-    data_roboflow_project_name: str = DATA_ROBOFLOW_PROJECT_NAME
-    data_roboflow_format: str = DATA_ROBOFLOW_FORMAT
+    data_download_url: str = DATA_DOWNLOAD_URL
     
 
 
@@ -52,11 +48,11 @@ class ModelTrainerConfig:
         training_pipeline_config.artifacts_dir, MODEL_TRAINER_DIR_NAME
     )
 
-    weight_name = MODEL_TRAINER_PRETRAINED_WEIGHT_NAME
+    weight_name: str = MODEL_TRAINER_PRETRAINED_WEIGHT_NAME
 
-    no_epochs = MODEL_TRAINER_NO_EPOCHS
+    no_epochs: int = MODEL_TRAINER_NO_EPOCHS
 
-    batch_size = MODEL_TRAINER_BATCH_SIZE
+    batch_size: int = MODEL_TRAINER_BATCH_SIZE
 
 
 

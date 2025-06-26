@@ -29,8 +29,8 @@ class DataValidation:
             validation_status = None
             all_files = os.listdir(self.data_ingestion_artifact.feature_store_path)
             os.makedirs(self.data_validation_config.data_validation_dir, exist_ok=True)
-            for file in all_files:
-                if file not in self.data_validation_config.required_file_list:
+            for file in self.data_validation_config.required_file_list:
+                if file not in all_files:
                     validation_status = False
                 else:
                     validation_status = True
@@ -52,11 +52,12 @@ class DataValidation:
                 validation_status=status)
 
             logging.info("Exited initiate_data_validation method of DataValidation class")
-            logging.info(f"Data validation artifact: {data_validation_artifact}")
+            logging.info(f"Data validation artifact: {data_validation_artifact} and The state is: {status}")
 
-            if status:
-                shutil.copytree(self.data_ingestion_artifact.feature_store_path, os.getcwd()+'car_object_raw-1')
-
+            # if status:
+            #     shutil.move(self.data_ingestion_artifact.feature_store_path, os.getcwd())
+            #     # shutil.copytree(self.data_ingestion_artifact.feature_store_path, os.getcwd()+'car_object_raw-1')
+            #    logging.info(f"Move the zip file to : {os.getcwd()}")
             return data_validation_artifact
 
         except Exception as e:
