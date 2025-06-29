@@ -41,3 +41,16 @@ MODEL PUSHER related constant start with MODEL_PUSHER var name
 """
 BUCKET_NAME = "smart-traffic-cctv-2025"
 S3_MODEL_NAME = "best.pt"
+
+
+
+"""
+MODEL INFERENCE related constant start with MODEL_INFERENCE var name
+"""
+MODEL_INFERENCE_DIR_NAME: str = "model_inferencer"
+
+MODEL_INFERENCE_PRETRAINED_WEIGHT_NAME: str = "yolov8s.pt"
+
+MODEL_INFERENCE_NO_EPOCHS: int = 1
+
+MODEL_INFERENCE_BATCH_SIZE: int = 16

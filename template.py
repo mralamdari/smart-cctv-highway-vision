@@ -6,6 +6,7 @@ logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 
 project_name = "SmartCctvHighway"
 
+    
 
 list_of_files = [
     "data/.gitkeep",
@@ -14,13 +15,16 @@ list_of_files = [
     f"{project_name}/components/data_ingestion.py",
     f"{project_name}/components/data_validation.py",
     f"{project_name}/components/model_trainer.py",
-    # f"{project_name}/components/model_pusher.py",
+    f"{project_name}/components/model_inferencer.py",
     
-    # f"{project_name}/configuration/__init__.py",
-    # f"{project_name}/configuration/s3_operations.py",
+    
+    f"{project_name}/components/model_pusher.py",
+    f"{project_name}/configuration/__init__.py",
+    f"{project_name}/configuration/s3_operations.py",
     
     f"{project_name}/constant/__init__.py",
     f"{project_name}/constant/training_pipeline/__init__.py",
+    f"{project_name}/constant/model_inference/__init__.py",
     f"{project_name}/constant/application.py",
     
     f"{project_name}/entity/__init__.py",
@@ -32,6 +36,8 @@ list_of_files = [
     
     f"{project_name}/pipeline/__init__.py",
     f"{project_name}/pipeline/training_pipeline.py",
+    f"{project_name}/pipeline/inference_pipeline.py",
+    
     
     f"{project_name}/utils/__init__.py",
     f"{project_name}/utils/main_utils.py",
@@ -53,8 +59,7 @@ for filepath in list_of_files:
         os.makedirs(filedir, exist_ok=True)
         logging.info(f"Creating directory: {filedir} for the file {filename}")
 
-    
-    if(not os.path.exists(filename)) or (os.path.getsize(filename) == 0):
+    if not os.path.exists(filepath):
         with open(filepath, 'w') as f:
             pass
             logging.info(f"Creating empty file: {filename}")
