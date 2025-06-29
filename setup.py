@@ -8,7 +8,7 @@ setup(
     name= "SmartCCTVHighway",
     version= "0.0.0",
     author= "Esmaeil Fakheri Alamdari",
-    author_email= "mralamdari2000@gmial.com",
+    author_email= "mralamdari2000@gmail.com",
     packages= find_packages(),
     install_requires = []
 )
